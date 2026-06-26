@@ -14,20 +14,12 @@ $user = $env['DB_USER'] ?? '';
 $password = $env['DB_PASS'] ?? '';
 $charset = $env['DB_CHARSET'] ?? 'utf8mb4';
 
-try {
-    $pdo = new PDO(
-        "mysql:host=$host;dbname=$dbname;charset=$charset",
-        $user,
-        $password
-    );
+$connex = mysqli_connect($host, $user, $password, $dbname);
 
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-} catch (PDOException $e) {
-    die("Erreur de connexion à la base de données : " . $e->getMessage());
+if (!$connex) {
+    die("Erreur de connexion à la base de données : " . mysqli_connect_error());
 }
 
+mysqli_set_charset($connex, $charset);
+
 ?>
-
-
-
