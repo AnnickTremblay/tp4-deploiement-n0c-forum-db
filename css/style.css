@@ -1,0 +1,273 @@
+:root {
+    --primary-color: #0046c7;
+    --primary-dark: #002b80;
+    --primary-light: #d9ecff;
+
+    --background-color: #f5f9ff;
+    --card-color: #ffffff;
+
+    --text-color: #102033;
+    --muted-color: #4b5c70;
+
+    --border-color: #c7d7ea;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--background-color);
+}
+
+h1 {
+    text-align: center;
+    margin: 2em 0 1.5em;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+h4 {
+    min-height: 3em;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*** header / nav ***/
+
+header {
+    display: flex;
+}
+
+nav {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: flex-end;
+    color: #fff;
+    width: 100%;
+    padding: 1em;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 3em;
+}
+
+.site-header__link {
+    padding: 0.6em 0.9em;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 6px;
+}
+
+.site-header__link:hover {
+    background-color: var(--primary-dark);
+    color: white;
+}
+
+
+/***  principal content ***/
+
+main {
+    flex: 1;
+    max-width: 1200px;
+    width: 85%;
+    margin: 0 auto;
+    padding-bottom: 3em;
+}
+
+
+/*** article / section ***/
+
+.welcome {
+    margin: 0 auto 2.5em;
+    padding: 2em;
+    text-align: center;
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+
+.welcome h2 {
+    margin-top: 0;
+    color: var(--primary-dark);
+}
+
+.welcome p{
+    margin: 0 auto;
+    line-height: 1.6;
+    color: var(--muted-color);
+}
+
+.forum-list {
+    background-color: var(--primary-light);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 1.5em 1.5em;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.forum-list h2 {
+    color: var(--text-color);
+    padding: 1.5em;
+
+}
+
+.forum-list h2::after {
+    display: none;
+}
+
+.forum-card {
+    max-width: 900px;
+    margin: 0 auto 1.5em;
+    padding: 0 1.5em 1.5em;
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.forum-card__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+    margin-top: 2em;
+}
+
+.forum-card--detail {
+    max-width: 800px;
+    margin: 3em auto;
+}
+
+.forum-card h4 {
+    background-color: var(--primary-dark);
+    margin: 0 -1.5em 1em;
+    padding: 0.8em;
+    text-align: center;
+    color: white;
+}
+
+.forum-card p {
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.forum-card div:last-of-type {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+    margin-top: 2em;
+}
+
+.forum-card div:first-of-type {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+
+/*** formular ***/
+
+.form {
+    width: 400px;
+    margin: 2em auto;
+    padding: 2em;
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+/* Applique le style aux champs formulaires, sauf le bouton */
+.form input:not(.btn),
+.form textarea {
+    width: 100%;
+    padding: 0.7em;
+    margin-bottom: 2em;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Corrige la couleur de fond ajoutée automatiquement par le navigateur */
+.form input:-webkit-autofill,
+.form input:-webkit-autofill:hover,
+.form input:-webkit-autofill:focus {
+    box-shadow: 0 0 0 1000px white inset;
+}
+
+.form__field--last {
+    margin-bottom: 3em;
+}
+
+
+/*** messages ***/
+
+.text-alert {
+    color: red;
+}
+
+
+/*** buttons ***/
+
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+}
+
+.btn:hover{
+    background-color: var(--primary-dark);
+}
+
+
+/***  footer ***/
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 0;
+    margin-top: auto;
+}
