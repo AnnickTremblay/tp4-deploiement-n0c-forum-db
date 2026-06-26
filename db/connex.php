@@ -1,21 +1,31 @@
 <?php
 
-// Affichage des  erreurs (développement)
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
+$envPath = __DIR__ . '/../.env';
 
-// Connexion à la base de données
-$connex = mysqli_connect("127.0.0.1", "root", "Admin", "forum_db", 3306);
-
-// Vérifie si la connexion a échoué
-if(!$connex){
-    echo "Fail to connect ".mysqli_connect_error();
-    exit();
+if (!file_exists($envPath)) {
+    die("Erreur : le fichier .env est manquant.");
 }
 
-// Définit l'encodage des caractères
-mysqli_set_charset($connex, "utf8mb4");
+$env = parse_ini_file($envPath);
+
+$host = $env['DB_HOST'] ?? 'localhost';
+$dbname = $env['DB_NAME'] ?? '';
+$user = $env['DB_USER'] ?? '';
+$password = $env['DB_PASS'] ?? '';
+$charset = $env['DB_CHARSET'] ?? 'utf8mb4';
+
+try {
+    $pdo = new PDO(
+        "mysql:host=$host;dbname=$dbname;charset=$charset",
+        $user,
+        $password
+    );
+
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+} catch (PDOException $e) {
+    die("Erreur de connexion à la base de données : " . $e->getMessage());
+}
 
 ?>
 
