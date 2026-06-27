@@ -1,12 +1,12 @@
 <?php
-require_once('../includes/check-session.php');
-require_once('../db/connex.php');
+require_once(__DIR__ . '/../includes/check-session.php');
+require_once(__DIR__ . '/../../db/connex.php');
 
 // Vérifie si la page est appelée par le formulaire
 if($_SERVER['REQUEST_METHOD'] != 'POST'){
 
     // Redirige vers la page d'accueil
-    header('Location: ../index.php');
+    header('Location: /index.php');
 
     // Arrête l'exécution du script
     exit;
@@ -26,7 +26,7 @@ $sql = "DELETE FROM forum
 
 // Exécute la requête SQL
 if(mysqli_query($connex, $sql)){
-    header('Location: ../index.php');
+    header('Location: /index.php');
     exit;
 }else{
     echo mysqli_error($connex);

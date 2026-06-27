@@ -1,12 +1,12 @@
 <?php
 // Vérifie si le formulaire a été envoyé avec la méthode POST
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-    header('Location: ../index.php');
+    header('Location: /index.php');
     exit;
 }
 
 // Connexion à la base de données
-require_once('../db/connex.php');
+require_once(__DIR__ . '/../../db/connex.php');
 
 // Récupère et sécurise les données reçues du formulaire
 $name = mysqli_real_escape_string($connex, $_POST['name']);
@@ -25,10 +25,10 @@ $sql = "INSERT INTO user (name, username, password, birthday)
 if (mysqli_query($connex, $sql)) {
 
     // Redirige vers la page d'accueil si l'inscription fonctionne
-    header('Location: ../index.php');
+    header('Location: /index.php');
     exit;
 } else {
-    
+
     // Affiche l'erreur SQL si l'insertion échoue
     echo "Erreur : " . mysqli_error($connex);
 }

@@ -1,7 +1,7 @@
 <?php
 
 // Connexion à la base de données
-require_once('../db/connex.php');
+require_once(__DIR__ . '/../../db/connex.php');
 
 // Vérifie si un id de l'article est reçu dans l'adresse url
 if(isset($_GET['id']) && $_GET['id'] != null){
@@ -22,12 +22,12 @@ if(isset($_GET['id']) && $_GET['id'] != null){
     if($count === 1){
         $forum = mysqli_fetch_array($result, MYSQLI_ASSOC);
     }else{
-        header('Location: ../index.php');
+        header('Location: /index.php');
         exit;
     }
 
 }else{
-    header('Location: ../index.php');
+    header('Location: /index.php');
     exit;
 }
 ?>

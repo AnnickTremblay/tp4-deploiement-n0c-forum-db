@@ -1,5 +1,5 @@
 <?php
-require_once('../includes/check-session.php');
+require_once(__DIR__ . '/../includes/check-session.php');
 
 $title = "Nouvel article";
 include_once('../includes/header.php');

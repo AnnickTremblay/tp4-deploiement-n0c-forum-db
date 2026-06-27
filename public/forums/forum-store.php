@@ -1,10 +1,10 @@
 <?php
-require_once('../includes/check-session.php');
-require_once('../db/connex.php');
+require_once(__DIR__ . '/../includes/check-session.php');
+require_once(__DIR__ . '/../../db/connex.php');
 
 // Vérifie si l'article a bien été envoyé
 if($_SERVER['REQUEST_METHOD'] != 'POST'){
-    header('Location: ../index.php');
+    header('Location: /index.php');
     exit;
 }
 

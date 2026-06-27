@@ -1,10 +1,10 @@
 <?php
 // Connexion à la base de données
-require_once('../db/connex.php');
+require_once(__DIR__ . '/../../db/connex.php');
 
 // Vérifie si le formulaire est soumis
 if($_SERVER['REQUEST_METHOD'] != 'POST'){
-    header('Location: login.php');
+    header('Location: /index.php');
     exit;
 }
 
@@ -40,7 +40,7 @@ if($count === 1){
         $_SESSION['fingerPrint'] = md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR']);
 
         // Fonction header() qui redirige l'utilisateur après avoir été authentifié
-        header('Location: ../index.php');
+        header('Location: /index.php');
         // Arrêt de l'exécution du script
         exit;
 

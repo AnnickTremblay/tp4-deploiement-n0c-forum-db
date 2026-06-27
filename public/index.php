@@ -1,5 +1,5 @@
 <?php
-require_once('db/connex.php');
+require_once(__DIR__ . '/../db/connex.php');
 
 // Requête SQL qui récupère les articles du forum et leur auteur
 $sql = "SELECT forum.id, title, article, date, name
