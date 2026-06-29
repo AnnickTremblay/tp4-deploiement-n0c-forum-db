@@ -240,6 +240,7 @@ main {
 
 .text-alert {
     color: red;
+    font-weight: 600;
 }
 
 
